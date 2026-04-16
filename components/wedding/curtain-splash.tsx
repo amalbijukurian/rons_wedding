@@ -90,13 +90,11 @@ export function CurtainSplash({ onOpen }: CurtainSplashProps) {
         </p>
 
         {/* Couple names */}
-        <div className="mb-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-foreground leading-tight">
-            {couple.groomName.split(" ")[0]}
-          </h1>
-          <p className="text-2xl sm:text-3xl font-display text-primary my-2">&</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-foreground leading-tight">
-            {couple.brideName.split(" ")[0]}
+        <div className="mb-6 px-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-foreground leading-tight flex flex-col items-center">
+            <span>{couple.groomName}</span>
+            <span className="text-xl sm:text-3xl font-display text-primary my-3">&amp;</span>
+            <span>{couple.brideName}</span>
           </h1>
         </div>
 

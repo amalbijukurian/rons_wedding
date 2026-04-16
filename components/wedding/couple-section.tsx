@@ -2,13 +2,48 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useRef } from "react"
 import { weddingConfig } from "@/config/wedding"
+import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap"
 
 export function CoupleSection() {
   const { profiles, couple } = weddingConfig
+  const containerRef = useRef<HTMLDivElement>(null)
+  const groomImageRef = useRef<HTMLDivElement>(null)
+  const brideImageRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    // Parallax effect for Groom Image
+    if (groomImageRef.current) {
+      gsap.to(groomImageRef.current, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: groomImageRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+    }
+
+    // Parallax effect for Bride Image
+    if (brideImageRef.current) {
+      gsap.to(brideImageRef.current, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: brideImageRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+    }
+  }, { scope: containerRef })
 
   return (
-    <section className="py-20 px-6">
+    <section ref={containerRef} className="py-20 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,14 +71,16 @@ export function CoupleSection() {
           >
             <div className="relative bg-card rounded-2xl overflow-hidden shadow-lg">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <Image
-                  src={profiles.groom.image}
-                  alt={profiles.groom.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-card">
+                <div ref={groomImageRef} className="absolute inset-0 -top-[20%] h-[140%]">
+                  <Image
+                    src={profiles.groom.image}
+                    alt={profiles.groom.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-card pointer-events-none">
                   <p className="text-sm tracking-wider uppercase opacity-80 mb-1">
                     {profiles.groom.role}
                   </p>
@@ -73,14 +110,16 @@ export function CoupleSection() {
           >
             <div className="relative bg-card rounded-2xl overflow-hidden shadow-lg">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <Image
-                  src={profiles.bride.image}
-                  alt={profiles.bride.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-card">
+                <div ref={brideImageRef} className="absolute inset-0 -top-[20%] h-[140%]">
+                  <Image
+                    src={profiles.bride.image}
+                    alt={profiles.bride.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-card pointer-events-none">
                   <p className="text-sm tracking-wider uppercase opacity-80 mb-1">
                     {profiles.bride.role}
                   </p>
@@ -127,3 +166,4 @@ export function CoupleSection() {
     </section>
   )
 }
+

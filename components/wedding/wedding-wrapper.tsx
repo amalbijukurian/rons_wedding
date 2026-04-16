@@ -12,6 +12,7 @@ import { GallerySection } from "./gallery-section"
 import { RSVPSection } from "./rsvp-section"
 import { Footer } from "./footer"
 import { MusicToggle } from "./music-toggle"
+import { HeartParticles } from "./heart-particles"
 
 export function WeddingWrapper() {
   const [isInvitationOpened, setIsInvitationOpened] = useState(false)
@@ -28,6 +29,7 @@ export function WeddingWrapper() {
 
   return (
     <>
+      <HeartParticles />
       {/* Splash Screen with Curtain */}
       <AnimatePresence mode="wait">
         {!isInvitationOpened && (

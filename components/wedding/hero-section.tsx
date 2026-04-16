@@ -65,9 +65,9 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-light tracking-wide text-foreground">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-light tracking-wide text-foreground flex flex-col items-center">
             <span className="block">{couple.groomName}</span>
-            <span className="text-3xl sm:text-4xl md:text-5xl text-primary my-2 sm:my-4 block">&amp;</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl text-primary font-display my-2 sm:my-4">&amp;</span>
             <span className="block">{couple.brideName}</span>
           </h1>
         </motion.div>
