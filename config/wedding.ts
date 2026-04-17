@@ -54,8 +54,8 @@ export const weddingConfig = {
       title: "Reception & Dinner",
       date: "April 19, 2026",
       time: "7:00 PM - 11:00 PM",
-      venue: "The Grand Ballroom",
-      address: "789 Celebration Avenue, Mumbai, India",
+      venue: "Green Park Convention Centre",
+      address: "NH 544, OppMGF Hyundai, Desom, Aluva, Kerala 683102",
       description: "Celebrate with us over dinner, music, and dancing.",
     },
   ],
@@ -77,7 +77,7 @@ export const weddingConfig = {
       fullName: "Anet Joy",
       role: "The Bride",
       description: "A creative spirit with a heart full of dreams. She finds joy in art, literature, and creating beautiful memories. Her smile lights up every room she enters.",
-      image: "/placeholder.svg?height=400&width=400", // Replace with actual image path
+      image: "/anet-child.jpeg?height=400&width=400", // Replace with actual image path
       parents: "Daughter of Mr. Joy K.L & Mrs. Reena Joy",
     },
   },
