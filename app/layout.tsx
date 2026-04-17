@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { weddingConfig } from '@/config/wedding'
 import './globals.css'
 
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -61,7 +62,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} bg-background`}>
       <body className="font-serif antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Analytics />
       </body>
     </html>
   )
